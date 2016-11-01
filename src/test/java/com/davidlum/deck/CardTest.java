@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -16,6 +17,13 @@ public class CardTest
         Card twoClub = new Card( 2, Suit.CLUBS);
         Card anotherTwoClub = new Card( 2, Suit.CLUBS);
         assertEquals( "Two 2-of-clubs are equal", twoClub, anotherTwoClub);
+    }
+
+    @Test
+    public void testHashCode() {
+        Card c1 = new Card( 12, Suit.CLUBS);
+        Card c2 = new Card( 12, Suit.CLUBS);
+        assertEquals( "Equal cards have same hash", c1.hashCode(), c2.hashCode());
     }
 
     @Test

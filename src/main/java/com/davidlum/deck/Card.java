@@ -1,5 +1,7 @@
 package com.davidlum.deck;
 
+import java.util.Objects;
+
 /**
  * A standard playing card with a suit and a number.
  */
@@ -114,5 +116,13 @@ public class Card implements Comparable<Card> {
     @Override
     public boolean equals( Object o) {
         return (o instanceof Card) && this.compareTo( (Card) o) == 0;
+    }
+
+    /**
+     * Overridden so that {@link #equals(Object) equal} objects have the same hash code.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash( m_Number, m_Suit);
     }
 }
